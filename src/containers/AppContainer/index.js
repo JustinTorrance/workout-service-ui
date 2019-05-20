@@ -1,21 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default class App extends React.Component {
+export default class AppContainer extends Component {
   render() {
     return (
       <View style={styles.container}>
         <Text>Fitness Application</Text>
       </View>
-    );
+    )
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#FFFFFF',
     alignItems: 'center',
-    justifyContent: 'center',
-  },
+    justifyContent: 'center'
+  }
 });
