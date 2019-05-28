@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, FlatList, StyleSheet, ScrollView, View, Button } from 'react-native';
 import { connect } from 'react-redux';
+import { FlatGrid } from 'react-native-super-grid';
 
 export class ExerciseScreen extends Component {
   constructor() {
@@ -41,21 +42,26 @@ export class ExerciseScreen extends Component {
     }
   }
 
+  addExercise = () => {
+    //this adds exercise to workout
+  }
 
   render() {
 
     return (
       <ScrollView>
-        <FlatList
-          data={this.state.exercises}
+        <FlatGrid
+          itemDimension={130}
+          style={styles.gridView}
+          items={this.state.exercises}
           renderItem={({item}) => 
           <View key={item.id} style={styles.exercise}>
             <Text key={item.id}>{item.name}</Text>
             <Button
-              // onPress={onPressLearnMore}
+              onPress={addExercise}
               title="+"
               color="#841584"
-              width='200'
+              width='100'
               
             />
           </View>
@@ -80,5 +86,9 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-evenly'
-  }
+  },
+  gridView: {
+    marginTop: 20,
+    flex: 1,
+  },
 });
