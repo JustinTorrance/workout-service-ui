@@ -8,12 +8,18 @@ export const setLoading = loading => ({
   loading
 });
 
-export const selectWorkout = (workout) => ({
+export const selectWorkout = workout => ({
   type: 'SELECT_WORKOUT',
   workout
 });
 
-export const storeExercises = (exercises) => ({
+export const setWorkouts = workouts => ({
+  type: 'SET_WORKOUTS',
+  workouts
+});
+
+export const storeExercises = exercises => ({
   type: 'STORE_EXERCISES',
   exercises
-})
+});
+

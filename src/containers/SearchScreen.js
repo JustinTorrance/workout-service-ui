@@ -5,18 +5,20 @@ export default class SearchScreen extends Component {
   constructor() {
     super();
     this.state = {
+      searchInput: 'Search for workouts!'
+    };
       searchInput: ''
     }
   }
 
   handleSearch = input => {
     this.setState({ searchInput: input });
-  }
+  };
 
   saveSearch = input => {
     const { searchArrTest } = this.state;
     this.setState({ searchArrTest: [...searchArrTest, input] });
-  }
+  };
 
   render() {
     const { searchInput } = this.state;
