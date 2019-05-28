@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, FlatList, StyleSheet, ScrollView, View } from 'react-native';
+import { Text, FlatList, StyleSheet, ScrollView, View, Button } from 'react-native';
 import { connect } from 'react-redux';
 
 export class ExerciseScreen extends Component {
@@ -40,6 +40,8 @@ export class ExerciseScreen extends Component {
       ]
     }
   }
+
+
   render() {
 
     return (
@@ -47,8 +49,15 @@ export class ExerciseScreen extends Component {
         <FlatList
           data={this.state.exercises}
           renderItem={({item}) => 
-          <View>
-            <Text>{item.name}</Text>
+          <View key={item.id} style={styles.exercise}>
+            <Text key={item.id}>{item.name}</Text>
+            <Button
+              // onPress={onPressLearnMore}
+              title="+"
+              color="#841584"
+              width='200'
+              
+            />
           </View>
           }
         />
@@ -66,5 +75,10 @@ export default connect(mapStateToProps)(ExerciseScreen)
 const styles = StyleSheet.create({
   container: {
     flex: 1
+  },
+  exercise:{
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-evenly'
   }
 });
