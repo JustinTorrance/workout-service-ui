@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 export class WorkoutScreen extends Component {
 
   render() {
-    const { name, length, repetitions  } = this.props.workout
+    const { name, length, repetitions } = this.props.workout;
 
     return (
       <ScrollView>
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   exercise: {
-    // flex: 1, 
+    // flex: 1,
   },
   textStyle: {
     textAlign: 'center',
