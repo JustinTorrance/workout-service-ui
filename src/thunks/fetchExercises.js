@@ -1,6 +1,6 @@
 import { setLoading, setError, storeExercises } from '../actions'
 
-export const fetchExecises = () => {
+export const fetchExercises = () => {
   return async (dispatch) => {
     try {
       dispatch(setLoading(true))

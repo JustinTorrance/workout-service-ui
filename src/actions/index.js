@@ -12,3 +12,8 @@ export const selectWorkout = (workout) => ({
   type: 'SELECT_WORKOUT',
   workout
 });
+
+export const storeExercises = (exercises) => ({
+  type: 'STORE_EXERCISES',
+  exercises
+})

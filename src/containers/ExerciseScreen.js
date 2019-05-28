@@ -3,79 +3,79 @@ import { Text, StyleSheet, ScrollView, View, Button } from 'react-native';
 import { connect } from 'react-redux';
 import { FlatGrid } from 'react-native-super-grid';
 import SearchScreen from './SearchScreen';
-import { fetchData } from '../utilities/fetchData'
+import { fetchExercises } from '../thunks/fetchExercises'
 
 export class ExerciseScreen extends Component {
   constructor() {
     super()
-    this.state = {
-      exercises: [
-        {
-          id: 1,
-          name: "Exercises 1",
-          description: "30",
-          img_url: "blank.jpg"
-        },
-        {
-          id: 2,
-          name: "Exercises 2",
-          description: "30",
-          img_url: "blank.jpg"
-        },
-        {
-          id: 3,
-          name: "Exercises 3",
-          description: "30",
-          img_url: "blank.jpg"
-        },
-        {
-          id: 4,
-          name: "Exercises 4",
-          description: "30",
-          img_url: "blank.jpg"
-        },
-        {
-          id: 5,
-          name: "Exercises 5",
-          description: "30",
-          img_url: "blank.jpg"
-        },
-        {
-          id: 11,
-          name: "Exercises 1",
-          description: "30",
-          img_url: "blank.jpg"
-        },
-        {
-          id: 21,
-          name: "Exercises 2",
-          description: "30",
-          img_url: "blank.jpg"
-        },
-        {
-          id: 31,
-          name: "Exercises 3",
-          description: "30",
-          img_url: "blank.jpg"
-        },
-        {
-          id: 41,
-          name: "Exercises 4",
-          description: "30",
-          img_url: "blank.jpg"
-        },
-        {
-          id: 51,
-          name: "Exercises 5",
-          description: "30",
-          img_url: "blank.jpg"
-        }
-      ]
-    }
+    // this.state = {
+    //   exercises: [
+    //     {
+    //       id: 1,
+    //       name: "Exercises 1",
+    //       description: "30",
+    //       img_url: "blank.jpg"
+    //     },
+    //     {
+    //       id: 2,
+    //       name: "Exercises 2",
+    //       description: "30",
+    //       img_url: "blank.jpg"
+    //     },
+    //     {
+    //       id: 3,
+    //       name: "Exercises 3",
+    //       description: "30",
+    //       img_url: "blank.jpg"
+    //     },
+    //     {
+    //       id: 4,
+    //       name: "Exercises 4",
+    //       description: "30",
+    //       img_url: "blank.jpg"
+    //     },
+    //     {
+    //       id: 5,
+    //       name: "Exercises 5",
+    //       description: "30",
+    //       img_url: "blank.jpg"
+    //     },
+    //     {
+    //       id: 11,
+    //       name: "Exercises 1",
+    //       description: "30",
+    //       img_url: "blank.jpg"
+    //     },
+    //     {
+    //       id: 21,
+    //       name: "Exercises 2",
+    //       description: "30",
+    //       img_url: "blank.jpg"
+    //     },
+    //     {
+    //       id: 31,
+    //       name: "Exercises 3",
+    //       description: "30",
+    //       img_url: "blank.jpg"
+    //     },
+    //     {
+    //       id: 41,
+    //       name: "Exercises 4",
+    //       description: "30",
+    //       img_url: "blank.jpg"
+    //     },
+    //     {
+    //       id: 51,
+    //       name: "Exercises 5",
+    //       description: "30",
+    //       img_url: "blank.jpg"
+    //     }
+    //   ]
+    // }
   }
 
   componentDidMount = async () => {
-    const response = await fetch()
+    await this.props.fetchAllExercises()
   }
 
   addExercise = () => {
@@ -92,7 +92,7 @@ export class ExerciseScreen extends Component {
         <FlatGrid
           itemDimension={130}
           style={styles.gridView}
-          items={this.state.exercises}
+          items={this.props.exercises}
           renderItem={({item}) => 
           <View key={item.id} style={styles.itemContainer}>
             <Text key={item.id} style={styles.itemName}>{item.name}</Text>
@@ -112,12 +112,14 @@ export class ExerciseScreen extends Component {
 }
 
 export const mapStateToProps = (state) => ({
-  // exercises: state.exercises
+  exercises: state.exercises
 })
 
+export const mapDispatchToProps = (dispatch) => ({
+  fetchAllExercises: () => dispatch(fetchExercises())
+})
 
-
-export default connect(mapStateToProps)(ExerciseScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(ExerciseScreen)
 
 const styles = StyleSheet.create({
   title: {
