@@ -12,3 +12,8 @@ export const selectWorkout = (workout) => ({
   type: 'SELECT_WORKOUT',
   workout
 });
+
+export const setWorkouts = workouts => ({
+  type: 'SET_WORKOUTS',
+  workouts
+});

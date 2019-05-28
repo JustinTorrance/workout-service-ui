@@ -6,17 +6,17 @@ export default class SearchScreen extends Component {
     super();
     this.state = {
       searchInput: 'Search for workouts!'
-    }
+    };
   }
 
   handleSearch = input => {
     this.setState({ searchInput: input });
-  }
+  };
 
   saveSearch = input => {
     const { searchArrTest } = this.state;
     this.setState({ searchArrTest: [...searchArrTest, input] });
-  }
+  };
 
   render() {
     const { searchInput } = this.state;
@@ -27,7 +27,7 @@ export default class SearchScreen extends Component {
           onChangeText={searchInput => this.handleSearch(searchInput)}
           value={searchInput}
         />
-        <TouchableOpacity style={styles.button} onPress={() => this.saveSearch(searchInput)}>
+        <TouchableOpacity style={styles.button}>
           <Text> Add To State </Text>
         </TouchableOpacity>
       </View>
