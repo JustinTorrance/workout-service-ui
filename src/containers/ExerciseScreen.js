@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Text, StyleSheet, ScrollView, View, Button } from 'react-native';
 import { connect } from 'react-redux';
 import { FlatGrid } from 'react-native-super-grid';
-import SearchScreen from './SearchScreen'
+import SearchScreen from './SearchScreen';
+import { fetchData } from '../utilities/fetchData'
 
 export class ExerciseScreen extends Component {
   constructor() {
@@ -73,8 +74,12 @@ export class ExerciseScreen extends Component {
     }
   }
 
+  componentDidMount = async () => {
+    const response = await fetch()
+  }
+
   addExercise = () => {
-    //this adds exercise to workout
+    //this adds exercise to CreateWorkout component
     //redirects user to CreateWorkout component
   }
 
@@ -109,6 +114,8 @@ export class ExerciseScreen extends Component {
 export const mapStateToProps = (state) => ({
   // exercises: state.exercises
 })
+
+
 
 export default connect(mapStateToProps)(ExerciseScreen)
 
