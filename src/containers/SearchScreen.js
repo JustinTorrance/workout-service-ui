@@ -5,7 +5,7 @@ export default class SearchScreen extends Component {
   constructor() {
     super();
     this.state = {
-      searchInput: 'Search for workouts!'
+      searchInput: ''
     }
   }
 
@@ -26,9 +26,10 @@ export default class SearchScreen extends Component {
           style={styles.textInput}
           onChangeText={searchInput => this.handleSearch(searchInput)}
           value={searchInput}
+          placeholder='search'
         />
         <TouchableOpacity style={styles.button} onPress={() => this.saveSearch(searchInput)}>
-          <Text> Add To State </Text>
+          <Text> Search </Text>
         </TouchableOpacity>
       </View>
     );
@@ -42,13 +43,16 @@ const styles = StyleSheet.create({
     top: 10
   },
   textInput: {
+    paddingLeft: 7,
     height: 30,
     width: 300,
-    fontSize: 30,
+    fontSize: 20,
     borderColor: '#000',
     borderWidth: 1
   },
   button: {
+    top: 10,
+    marginBottom: 10,
     alignItems: 'center',
     backgroundColor: '#DDDDDD',
     padding: 10
