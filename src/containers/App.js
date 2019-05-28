@@ -8,6 +8,7 @@ import Icon from '@expo/vector-icons/Ionicons';
 import HomeScreen from './HomeScreen';
 import SearchScreen from './SearchScreen';
 import WorkoutScreen from './WorkoutScreen';
+import ExerciseScreen from './ExerciseScreen';
 import thunk from 'redux-thunk';
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
@@ -46,13 +47,16 @@ const DashboardStackNavigator = createStackNavigator({
 const AppDrawerNavigator = createDrawerNavigator({
   Home: { screen: DashboardStackNavigator },
   Search: SearchScreen,
-  WorkoutScreen: WorkoutScreen
+  WorkoutScreen: WorkoutScreen,
+  ExerciseScreen: ExerciseScreen
 });
 
 const AppSwitchNavigator = createSwitchNavigator({
   Home: { screen: HomeScreen },
   Search: { screen: SearchScreen },
-  WorkoutScreen: { screen: WorkoutScreen }
+  WorkoutScreen: { screen: WorkoutScreen },
+  ExerciseScreen: { screen: ExerciseScreen }
+
 });
 
 const AppContainer = createAppContainer(AppDrawerNavigator);
