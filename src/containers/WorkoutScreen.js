@@ -2,16 +2,10 @@ import React, { Component } from 'react';
 import { Text, View, StyleSheet, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 
-export default class WorkoutScreen extends Component {
-  constructor() {
-    super()
-    this.state = {
-      data: []
-    }
-  }
+export class WorkoutScreen extends Component {
 
   render() {
-    const { name, length, repetitions  } = this.props.selectedWorkout
+    const { name, length, repetitions  } = this.props.workout
 
     return (
       <ScrollView>
@@ -22,11 +16,7 @@ export default class WorkoutScreen extends Component {
 
         <View style={styles.exercise}>
           { repetitions.map(exercise => {
-            return  <Text style={styles.textStyle}>{exercise.exercise.name}</Text>
-          }) }
-        
-          { repetitions.map(exercise => {
-            return  <Text style={styles.textStyle}>{exercise.description}</Text>
+            return  <Text style={styles.textStyle}>{exercise.description}: {exercise.exercise.name}</Text>
           }) }
         </View>
       </ScrollView>
@@ -35,7 +25,7 @@ export default class WorkoutScreen extends Component {
 }
 
 export const mapStateToProps = (state) => ({
-  selectedWorkout: state.selectedWorkout
+  workout: state.selectedWorkout
 })
 
 export default connect(mapStateToProps)(WorkoutScreen)
