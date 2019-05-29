@@ -19,12 +19,21 @@ export class ExerciseScreen extends Component {
     //redirects user to CreateWorkout component
   }
 
+  navigateCreateWorkout = () => {
+    const { navigate } = this.props.navigation;
+    navigate('CreateWorkout');
+  }
+
+  handleClick = () => {
+    this.addExercise()
+    this.navigateCreateWorkout()
+  }
+
   render() {
 
     return (
       <ScrollView>
         <Text style={styles.title}>Exercises</Text>
-        <SearchScreen />
         <FlatGrid
           itemDimension={130}
           style={styles.gridView}
@@ -32,11 +41,9 @@ export class ExerciseScreen extends Component {
           renderItem={({item}) =>
           <View key={item.id} style={styles.itemContainer}>
             <Text key={item.id} style={styles.itemName}>{item.name}</Text>
-
-            <TouchableOpacity onPress={this.addExercise}>
+            <TouchableOpacity onPress={this.handleClick}>
               <Text style={styles.button}>+</Text>
             </TouchableOpacity>
-
           </View>
           }
         />
