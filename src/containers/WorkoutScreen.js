@@ -39,7 +39,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    top: 10
   },
   exercise: {
     // flex: 1,
