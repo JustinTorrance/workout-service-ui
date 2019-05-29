@@ -10,8 +10,7 @@ export class WorkoutScreen extends Component {
     const name = workout.item.name;
     const length = workout.item.length;
     const rating = workout.item.avgrating;
-    console.log('workout', workout.item.name)
-    console.log('navigation props', this.props.navigation.state)
+
     return (
       <ScrollView>
         <View style={styles.container}>
@@ -19,11 +18,11 @@ export class WorkoutScreen extends Component {
           <Text>Length: {length}</Text>
           <Text>Rating: {rating}</Text>
         </View>
-        {/* <View style={styles.exercise}>
-          { repetitions.map(exercise => {
+        <View style={styles.exercise}>
+          { workout.item.repetitions.map(exercise => {
             return  <Text style={styles.textStyle}>{exercise.description}: {exercise.exercise.name}</Text>
           }) }
-        </View> */}
+        </View>
       </ScrollView>
     )
   }
