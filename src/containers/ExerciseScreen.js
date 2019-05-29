@@ -93,7 +93,7 @@ export class ExerciseScreen extends Component {
           itemDimension={130}
           style={styles.gridView}
           items={this.props.exercises}
-          renderItem={({item}) => 
+          renderItem={({item}) =>
           <View key={item.id} style={styles.itemContainer}>
             <Text key={item.id} style={styles.itemName}>{item.name}</Text>
             <Button
@@ -101,7 +101,6 @@ export class ExerciseScreen extends Component {
               title="+"
               color="#841584"
               width='100'
-              
             />
           </View>
           }

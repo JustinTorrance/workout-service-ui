@@ -9,6 +9,7 @@ import HomeScreen from './HomeScreen';
 import SearchScreen from './SearchScreen';
 import WorkoutScreen from './WorkoutScreen';
 import ExerciseScreen from './ExerciseScreen';
+import CreateWorkout from './CreateWorkout';
 import thunk from 'redux-thunk';
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
@@ -20,7 +21,10 @@ const AppNavigator = createStackNavigator({
 
 const DashboardTabNavigator = createBottomTabNavigator({
   Home: HomeScreen,
-  Search: SearchScreen
+  Search: SearchScreen,
+  Workout: WorkoutScreen,
+  Exercise: ExerciseScreen,
+  CreateWorkout: CreateWorkout
 }, {
     navigationOptions: ({ navigation }) => {
     const { routeName } = navigation.state.routes[navigation.state.index]

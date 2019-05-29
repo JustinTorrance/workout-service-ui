@@ -6,7 +6,6 @@ export const fetchAllWorkouts = () => {
     try {
       const url = 'https://workoutservice.herokuapp.com/api/v1/workouts';
       const response = await fetchData(url);
-      console.log('thunks: ', response);
       dispatch(actions.setWorkouts(response));
     } catch (error) {
       console.log(error.message);
