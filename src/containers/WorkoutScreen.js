@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, ScrollView } from 'react-native';
+import { Text, View, StyleSheet, ScrollView, Image } from 'react-native';
 import { connect } from 'react-redux';
 
 export class WorkoutScreen extends Component {
@@ -14,17 +14,28 @@ export class WorkoutScreen extends Component {
     return (
       <ScrollView>
         <View style={styles.container}>
-          <Text>{name}</Text>
-          <Text>Length: {length}</Text>
-          <Text>Rating: {rating}</Text>
+          <Text style={styles.workoutName}>{name}</Text>
+          <Text style={styles.description}>Length: {length}</Text>
+          <Text style={styles.description}>Rating: {rating}</Text>
         </View>
-        <View style={styles.exercise}>
-          { workout.item.repetitions.map(exercise => {
-            return  <Text style={styles.textStyle}>{exercise.description}: {exercise.exercise.name}</Text>
-          }) }
-        </View>
+        <Text style={styles.exerciseTitle}>Exercises: </Text>
+        {workout.item.repetitions.map(exercise => {
+          return (
+            <View key={exercise.id} style={styles.exercise}>
+                <Text style={styles.textStyle}>
+                  {exercise.exercise.name} : {exercise.description}
+                </Text>
+              {/* <View style={styles.imageContainer}> */}
+                  <Image
+                    style={styles.exerciseImage}
+                    source={{ uri: 'https://www.bodybuilding.com/exercises/exerciseImages/sequences/70/Male/l/70_1.jpg' }}
+                  />
+              {/* </View> */}
+            </View>
+          );
+        })}
       </ScrollView>
-    )
+    );
   }
 }
 
@@ -39,15 +50,50 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    top: 10
+    top: 14
   },
   exercise: {
-    // flex: 1,
+    marginTop: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginLeft: 80,
+    marginRight: 80,
+    borderWidth: 1,
+    borderColor: '#000',
+    backgroundColor: '#F1F0F0',
+    width: 260,
+    padding: 20,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 1
+  },
+  exerciseTitle: {
+    left: 30,
+    marginTop: 30,
+    fontSize: 18,
+    fontWeight: '600'
   },
   textStyle: {
-    textAlign: 'center',
     flex: 2,
-    flexDirection: 'row',
+    fontSize: 14,
+    padding: 4
+  },
+  workoutName: {
+    fontSize: 20,
+    fontWeight: '600',
+    marginBottom: 10
+  },
+  description: {
+    fontSize: 14,
+    fontWeight: '400',
+    margin: 10
+  },
+  exerciseImage: {
+    width: 65,
+    height: 65,
+    marginTop: 17,
+    marginBottom: 20
   }
-
 });
