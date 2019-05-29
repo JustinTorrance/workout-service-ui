@@ -8,7 +8,8 @@ class SearchScreen extends Component {
   constructor() {
     super();
     this.state = {
-      searchInput: ''
+      searchInput: '',
+      upperCaseSearch: ''
     };
   }
 
@@ -21,9 +22,28 @@ class SearchScreen extends Component {
     this.setState({ searchInput: input });
   };
 
-  filterBySearch = input => {
+  convertTextToUpperCase = () => {
+    const { searchInput } = this.state;
+    const text = searchInput;
+    let upperCaseInput = text.toUpperCase();
+    console.log('toUppercase', upperCaseInput)
+    this.setState({ upperCaseSearch: upperCaseInput });
+  }
+
+  filterBySearch = () => {
     const { workouts } = this.props;
-    const filteredSearch = workouts.filter(workout => workout.name = input);
+    const { upperCaseSearch } = this.state;
+    console.log('filter by search input: ', upperCaseSearch)
+    this.convertTextToUpperCase();
+    const filteredSearch = workouts.filter(workout => {
+      let workoutName = workout.name.toUpperCase();
+      console.log('wo name: ', workoutName)
+      let averageRating = workout.averageRating;
+      let workoutLength = workout.length;
+      console.log(workout.name)
+      return workoutName.includes(upperCaseSearch);
+    });
+    console.log('filtered search: ', filteredSearch)
     return filteredSearch;
   };
 
@@ -45,7 +65,7 @@ class SearchScreen extends Component {
               value={searchInput}
               placeholder="Search"
             />
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity style={styles.button} onPress={() => this.filterBySearch()}>
               <Text> Search </Text>
             </TouchableOpacity>
           </View>
