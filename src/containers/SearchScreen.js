@@ -9,7 +9,6 @@ export default class SearchScreen extends Component {
     };
       searchInput: ''
     }
-  }
 
   handleSearch = input => {
     this.setState({ searchInput: input });
@@ -34,7 +33,7 @@ export default class SearchScreen extends Component {
           <Text> Search </Text>
         </TouchableOpacity>
       </View>
-    );
+    )
   }
 }
 
