@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, StyleSheet, ScrollView, View, Button } from 'react-native';
+import { Text, StyleSheet, ScrollView, View, Button, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { FlatGrid } from 'react-native-super-grid';
 import SearchScreen from './SearchScreen';
@@ -8,70 +8,6 @@ import { fetchExercises } from '../thunks/fetchExercises'
 export class ExerciseScreen extends Component {
   constructor() {
     super()
-    // this.state = {
-    //   exercises: [
-    //     {
-    //       id: 1,
-    //       name: "Exercises 1",
-    //       description: "30",
-    //       img_url: "blank.jpg"
-    //     },
-    //     {
-    //       id: 2,
-    //       name: "Exercises 2",
-    //       description: "30",
-    //       img_url: "blank.jpg"
-    //     },
-    //     {
-    //       id: 3,
-    //       name: "Exercises 3",
-    //       description: "30",
-    //       img_url: "blank.jpg"
-    //     },
-    //     {
-    //       id: 4,
-    //       name: "Exercises 4",
-    //       description: "30",
-    //       img_url: "blank.jpg"
-    //     },
-    //     {
-    //       id: 5,
-    //       name: "Exercises 5",
-    //       description: "30",
-    //       img_url: "blank.jpg"
-    //     },
-    //     {
-    //       id: 11,
-    //       name: "Exercises 1",
-    //       description: "30",
-    //       img_url: "blank.jpg"
-    //     },
-    //     {
-    //       id: 21,
-    //       name: "Exercises 2",
-    //       description: "30",
-    //       img_url: "blank.jpg"
-    //     },
-    //     {
-    //       id: 31,
-    //       name: "Exercises 3",
-    //       description: "30",
-    //       img_url: "blank.jpg"
-    //     },
-    //     {
-    //       id: 41,
-    //       name: "Exercises 4",
-    //       description: "30",
-    //       img_url: "blank.jpg"
-    //     },
-    //     {
-    //       id: 51,
-    //       name: "Exercises 5",
-    //       description: "30",
-    //       img_url: "blank.jpg"
-    //     }
-    //   ]
-    // }
   }
 
   componentDidMount = async () => {
@@ -96,12 +32,11 @@ export class ExerciseScreen extends Component {
           renderItem={({item}) =>
           <View key={item.id} style={styles.itemContainer}>
             <Text key={item.id} style={styles.itemName}>{item.name}</Text>
-            <Button
-              onPress={this.addExercise}
-              title="+"
-              color="#841584"
-              width='100'
-            />
+
+            <TouchableOpacity onPress={this.addExercise}>
+              <Text style={styles.button}>+</Text>
+            </TouchableOpacity>
+
           </View>
           }
         />
@@ -133,6 +68,8 @@ const styles = StyleSheet.create({
   },
   itemContainer: {
     justifyContent: 'flex-end',
+    borderColor: '#DC143C',
+    borderWidth: 1, 
     borderRadius: 5,
     padding: 10,
     height: 150,
@@ -148,5 +85,17 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     bottom: 50,
     textAlign: 'center'
+  },
+  button: {
+    backgroundColor: '#DC143C',
+    borderColor: 'white',
+    borderWidth: 1,
+    borderRadius: 12,
+    color: 'white',
+    fontSize: 24,
+    fontWeight: 'bold',
+    overflow: 'hidden',
+    padding: 12,
+    textAlign:'center',
   },
 });

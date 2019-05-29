@@ -4,7 +4,8 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "test": "jest --watch --coverage --changedSince=origin/master -u"
   },
   "dependencies": {
     "@material-ui/core": "^3.9.3",
@@ -21,9 +22,16 @@
   "devDependencies": {
     "babel-preset-expo": "^5.0.0",
     "enzyme": "^3.9.0",
-    "enzyme-adapter-react-16": "^1.13.1",
+    "enzyme-adapter-react-16": "^1.13.2",
+    "jest-expo": "^32.0.1",
     "react-test-renderer": "^16.8.6",
     "remote-redux-devtools": "^0.5.16"
+  },
+  "jest": {
+    "preset": "jest-expo",
+    "transformIgnorePatterns": [
+      "node_modules/(?!((jest-)?react-native|react-clone-referenced-element|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|sentry-expo|native-base))"
+    ]
   },
   "private": true
 }
