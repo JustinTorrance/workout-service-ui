@@ -22,15 +22,13 @@ export class WorkoutScreen extends Component {
         {workout.item.repetitions.map(exercise => {
           return (
             <View key={exercise.id} style={styles.exercise}>
-                <Text style={styles.textStyle}>
-                  {exercise.exercise.name} : {exercise.description}
-                </Text>
-              {/* <View style={styles.imageContainer}> */}
-                  <Image
-                    style={styles.exerciseImage}
-                    source={{ uri: 'https://www.bodybuilding.com/exercises/exerciseImages/sequences/70/Male/l/70_1.jpg' }}
-                  />
-              {/* </View> */}
+              <Text style={styles.textStyle}>
+                {exercise.exercise.name} : {exercise.description}
+              </Text>
+              <Image
+                style={styles.exerciseImage}
+                source={{ uri: 'https://www.bodybuilding.com/exercises/exerciseImages/sequences/70/Male/l/70_1.jpg' }}
+              />
             </View>
           );
         })}
@@ -53,21 +51,23 @@ const styles = StyleSheet.create({
     top: 14
   },
   exercise: {
-    marginTop: 10,
-    flexDirection: 'row',
     alignItems: 'center',
+    backgroundColor: '#F1F0F0',
+    borderWidth: 1,
+    borderColor: '#E8E8E8',
+    borderRadius: 20,
+    elevation: 1,
+    flexDirection: 'row',
+    height: 100,
+    marginTop: 13,
     marginLeft: 80,
     marginRight: 80,
-    borderWidth: 1,
-    borderColor: '#000',
-    backgroundColor: '#F1F0F0',
     width: 260,
     padding: 20,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
     shadowRadius: 2,
-    elevation: 1
   },
   exerciseTitle: {
     left: 30,
