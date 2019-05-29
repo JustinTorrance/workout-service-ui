@@ -4,7 +4,7 @@ import { FlatGrid } from 'react-native-super-grid';
 import { connect } from 'react-redux';
 import { fetchAllWorkouts } from '../thunks/fetchAllWorkouts';
 
-class SearchScreen extends Component {
+export class SearchScreen extends Component {
   constructor() {
     super();
     this.state = {

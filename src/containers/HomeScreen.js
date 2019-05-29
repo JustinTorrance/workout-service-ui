@@ -4,7 +4,7 @@ import { FlatGrid } from 'react-native-super-grid';
 import { Text, View, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import { fetchAllWorkouts } from '../thunks/fetchAllWorkouts';
 
-class HomeScreen extends Component {
+export class HomeScreen extends Component {
   async componentDidMount() {
     const { fetchAllWorkouts } = this.props;
     await fetchAllWorkouts();
