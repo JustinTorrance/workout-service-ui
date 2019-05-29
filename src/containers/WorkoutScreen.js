@@ -5,30 +5,35 @@ import { connect } from 'react-redux';
 export class WorkoutScreen extends Component {
 
   render() {
-    const { name, length, repetitions } = this.props.workout;
-
+    const { navigation } = this.props;
+    const workout = navigation.getParam('workout');
+    const name = workout.item.name;
+    const length = workout.item.length;
+    const rating = workout.item.avgrating;
+    console.log('workout', workout.item.name)
+    console.log('navigation props', this.props.navigation.state)
     return (
       <ScrollView>
         <View style={styles.container}>
           <Text>{name}</Text>
           <Text>Length: {length}</Text>
+          <Text>Rating: {rating}</Text>
         </View>
-
-        <View style={styles.exercise}>
+        {/* <View style={styles.exercise}>
           { repetitions.map(exercise => {
             return  <Text style={styles.textStyle}>{exercise.description}: {exercise.exercise.name}</Text>
           }) }
-        </View>
+        </View> */}
       </ScrollView>
     )
   }
 }
 
-export const mapStateToProps = (state) => ({
+export const mapStateToProps = state => ({
   workout: state.selectedWorkout
-})
+});
 
-export default connect(mapStateToProps)(WorkoutScreen)
+export default connect(mapStateToProps, null)(WorkoutScreen);
 
 const styles = StyleSheet.create({
   container: {
