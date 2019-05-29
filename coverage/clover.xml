@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1559160696228" clover="3.2.0">
-  <project timestamp="1559160696228" name="All files">
-    <metrics statements="10" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="0" elements="18" coveredelements="0" complexity="0" loc="10" ncloc="10" packages="1" files="1" classes="1"/>
+<coverage generated="1559161897418" clover="3.2.0">
+  <project timestamp="1559161897418" name="All files">
+    <metrics statements="10" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="3" elements="18" coveredelements="11" complexity="0" loc="10" ncloc="10" packages="1" files="1" classes="1"/>
     <file name="ExerciseScreen.js" path="/Users/justintorrance/turing/thisMod/workout-service-ui/src/containers/ExerciseScreen.js">
-      <metrics statements="10" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="0"/>
-      <line num="10" count="0" type="stmt"/>
-      <line num="13" count="0" type="stmt"/>
-      <line num="14" count="0" type="stmt"/>
-      <line num="17" count="0" type="stmt"/>
-      <line num="24" count="0" type="stmt"/>
+      <metrics statements="10" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="3"/>
+      <line num="10" count="1" type="stmt"/>
+      <line num="13" count="1" type="stmt"/>
+      <line num="14" count="1" type="stmt"/>
+      <line num="17" count="1" type="stmt"/>
+      <line num="24" count="1" type="stmt"/>
       <line num="33" count="0" type="stmt"/>
-      <line num="48" count="0" type="stmt"/>
-      <line num="52" count="0" type="stmt"/>
+      <line num="48" count="2" type="stmt"/>
+      <line num="52" count="2" type="stmt"/>
       <line num="53" count="0" type="stmt"/>
-      <line num="58" count="0" type="stmt"/>
+      <line num="58" count="2" type="stmt"/>
     </file>
   </project>
 </coverage>
