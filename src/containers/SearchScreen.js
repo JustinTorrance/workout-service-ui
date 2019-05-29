@@ -9,18 +9,21 @@ class SearchScreen extends Component {
     super();
     this.state = {
       searchInput: '',
-      upperCaseSearch: ''
+      upperCaseSearch: '',
+      filteredSearch: []
     };
   }
 
-  async componentDidMount() {
-    const { fetchAllWorkouts } = this.props;
-    await fetchAllWorkouts();
+  handleSearch = input => {
+    // console.log(input)
+    this.setState({ searchInput: input }, this.handleChange);
+    console.log(this.state.searchInput)
   }
 
-  handleSearch = input => {
-    this.setState({ searchInput: input });
-  };
+  handleChange = () => {
+    this.setState({ searchInput: this.state.searchInput })
+    console.log('handle change', this.state.searchInput)
+  }
 
   convertTextToUpperCase = () => {
     const { searchInput } = this.state;
@@ -35,21 +38,22 @@ class SearchScreen extends Component {
     const { upperCaseSearch } = this.state;
     console.log('filter by search input: ', upperCaseSearch)
     this.convertTextToUpperCase();
+    console.log('UPPER CASE SEARCH: ', upperCaseSearch)
     const filteredSearch = workouts.filter(workout => {
       let workoutName = workout.name.toUpperCase();
-      console.log('wo name: ', workoutName)
-      let averageRating = workout.averageRating;
-      let workoutLength = workout.length;
-      console.log(workout.name)
+      console.log('wo name: ', workoutName);
+      console.log('workout.name: ', workout.name);
       return workoutName.includes(upperCaseSearch);
     });
     console.log('filtered search: ', filteredSearch)
-    return filteredSearch;
+    this.setState({filteredSearch})
+    // return filteredSearch;
   };
 
   render() {
-    const { searchInput } = this.state;
+    const { searchInput, filteredSearch } = this.state;
     const { workouts } = this.props;
+    const { navigate } = this.props.navigation;
     const topRated = workouts.sort((a, b) => {
       return b.avgrating - a.avgrating;
     });
@@ -61,7 +65,7 @@ class SearchScreen extends Component {
           <View style={styles.flexRow}>
             <TextInput
               style={styles.textInput}
-              onChangeText={searchInput => this.handleSearch(searchInput)}
+              onChangeText={input => this.handleSearch(input)}
               value={searchInput}
               placeholder="Search"
             />
@@ -73,27 +77,56 @@ class SearchScreen extends Component {
         <View>
           <Text style={styles.filter}>Filter by Categories: </Text>
         </View>
-        <Text style={styles.workouts}>Top Rated: </Text>
-        <FlatGrid
-          itemDimension={130}
-          style={styles.gridView}
-          items={topRated}
-          renderItem={({ item }) => (
-            <TouchableOpacity
-              key={item.id}
-              style={styles.itemContainer}
-              onPress={() => {
-                navigate('Workout', { workout: { item } });
-              }}
-            >
-              <Text key={item.id} style={styles.itemName}>
-                {item.name}
-              </Text>
-              <Text style={styles.centerText}>Rating: {item.avgrating}</Text>
-              <Text style={styles.centerText}>Workout Length: {item.length}</Text>
-            </TouchableOpacity>
-          )}
-        />
+
+        {filteredSearch.length <= 0 ? (
+          <View>
+            <Text style={styles.workouts}>Top Rated: </Text>
+            <FlatGrid
+              itemDimension={130}
+              style={styles.gridView}
+              items={topRated}
+              renderItem={({ item }) => (
+                <TouchableOpacity
+                  key={item.id}
+                  style={styles.itemContainer}
+                  onPress={() => {
+                    navigate('Workout', { workout: { item } });
+                  }}
+                >
+                  <Text key={item.id} style={styles.itemName}>
+                    {item.name}
+                  </Text>
+                  <Text style={styles.centerText}>Rating: {item.avgrating}</Text>
+                  <Text style={styles.centerText}>Workout Length: {item.length}</Text>
+                </TouchableOpacity>
+              )}
+            />
+          </View>
+        ) : (
+          <View>
+            <Text style={styles.workouts}>Search Results: </Text>
+            <FlatGrid
+              itemDimension={130}
+              style={styles.gridView}
+              items={filteredSearch}
+              renderItem={({ item }) => (
+                <TouchableOpacity
+                  key={item.id}
+                  style={styles.itemContainer}
+                  onPress={() => {
+                    navigate('Workout', { workout: { item } });
+                  }}
+                >
+                  <Text key={item.id} style={styles.itemName}>
+                    {item.name}
+                  </Text>
+                  <Text style={styles.centerText}>Rating: {item.avgrating}</Text>
+                  <Text style={styles.centerText}>Workout Length: {item.length}</Text>
+                </TouchableOpacity>
+              )}
+            />
+          </View>
+        )}
       </ScrollView>
     );
   }
@@ -148,7 +181,7 @@ const styles = StyleSheet.create({
     elevation: 4
   },
   itemName: {
-    fontSize: 16,
+    fontSize: 18,
     color: '#000',
     fontWeight: '600',
     bottom: 10,
