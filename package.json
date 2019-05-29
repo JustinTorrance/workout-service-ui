@@ -49,8 +49,7 @@
       "!**/jest.setup.js",
       "src/**/*.{js,jsx}",
       "!src/serviceWorker.js",
-      "!src/index.js",
-      "!src/Reducers/index.js"
+      "!src/reducers/index.js"
     ]
   },
   "private": true
