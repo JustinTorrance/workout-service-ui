@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, ScrollView, TextInput, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
+import { saveWorkout } from '../thunks/saveWorkout';
+import { fetchAllWorkouts } from '../thunks/fetchAllWorkouts'
 
 export class CreateWorkout extends Component {
   constructor() {
@@ -16,8 +18,16 @@ export class CreateWorkout extends Component {
     navigate('ExerciseScreen');
   }
 
-  saveWorkout = () => {
-    //post
+  postWorkout = () => {
+    const workout = {
+      name: this.state.name,
+      length: this.state.duration,
+      exercises: this.props.exercisesToAddToWorkout
+    }
+    this.props.saveWorkout(workout)
+    this.props.fetchAllWorkouts()
+    const { navigate } = this.props.navigation;
+    navigate('SearchScreen');
   }
 
   render() {
@@ -59,7 +69,7 @@ export class CreateWorkout extends Component {
             <TouchableOpacity onPress={this.handleClick}>
               <Text style={styles.button}>Add Exercise</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={this.saveWorkout}>
+            <TouchableOpacity onPress={this.postWorkout}>
               <Text style={styles.button}>Save Workout</Text>
             </TouchableOpacity>
           </View>
@@ -73,7 +83,12 @@ export const mapStateToProps = (state) => ({
   exercisesToAddToWorkout: state.exercisesInProgress
 })
 
-export default connect(mapStateToProps)(CreateWorkout);
+export const mapDispatchToProps = (dispatch) => ({
+  saveWorkout: (workout) => dispatch(saveWorkout(workout)),
+  fetchAllWorkouts: () => dispatch(fetchAllWorkouts())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateWorkout);
 
 const styles = StyleSheet.create({
   container: {
