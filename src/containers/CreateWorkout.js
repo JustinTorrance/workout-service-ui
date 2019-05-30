@@ -7,8 +7,7 @@ export class CreateWorkout extends Component {
     super()
     this.state = {
       name: '',
-      duration: '',
-      exercises: []
+      duration: ''
     }
   }
 
@@ -46,6 +45,17 @@ export class CreateWorkout extends Component {
               value={this.state.duration}
               placeholder='Duration'
             />
+          </View>
+          <View>
+            {this.props.exercisesToAddToWorkout.map(exercise => {
+              return (
+                <View key={exercise.id} style={styles.exercise}>
+                  <Text style={styles.textStyle}>
+                    {exercise.item.name} : {exercise.item.description}
+                  </Text>
+                </View>
+              );
+            })}
             <TouchableOpacity onPress={this.handleClick}>
               <Text style={styles.button}>Add Exercise</Text>
             </TouchableOpacity>
@@ -92,5 +102,10 @@ const styles = StyleSheet.create({
     padding: 12,
     textAlign:'center',
     width: 200
+  },
+  textStyle: {
+    flex: 2,
+    fontSize: 14,
+    padding: 4
   },
 });

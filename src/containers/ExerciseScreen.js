@@ -18,8 +18,6 @@ export class ExerciseScreen extends Component {
     this.props.addExerciseToWorkout(item)
     const { navigate } = this.props.navigation;
     navigate('CreateWorkout', { exercise: {item}})
-
-    console.log('ITEM', item)
   }
 
   render() {
