@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, ScrollView, TextInput, TouchableOpacity } from 'react-native';
+import { connect } from 'react-redux';
 
-export default class CreateWorkout extends Component {
+export class CreateWorkout extends Component {
   constructor() {
     super()
     this.state = {
@@ -18,11 +19,13 @@ export default class CreateWorkout extends Component {
 
   render() {
 
-    const { navigation } = this.props;
-    const exercise = navigation.getParam('exercise');
-    
-    // console.log(' Navigation:  ', navigation)
-    console.log('EXERCISE: ', exercise)
+    // const { navigation } = this.props;
+    // const exercise = navigation.getParam('exercise');
+
+    if (this.props.exercisesToAddToWorkout.length > 0) {
+      console.log('WHOOOHOOO', this.props.exercisesToAddToWorkout)
+
+    }
 
     return (
       <ScrollView>
@@ -53,11 +56,11 @@ export default class CreateWorkout extends Component {
   }
 }
 
+export const mapStateToProps = (state) => ({
+  exercisesToAddToWorkout: state.exercisesInProgress
+})
 
-
-  // + will add exercise to redux store,
-  //direct to CreateWorkout
-//mapStateToProps, map and display execises
+export default connect(mapStateToProps)(CreateWorkout);
 
 const styles = StyleSheet.create({
   container: {

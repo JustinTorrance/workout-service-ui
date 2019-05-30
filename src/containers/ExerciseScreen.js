@@ -3,7 +3,7 @@ import { Text, StyleSheet, ScrollView, View, Button, TouchableOpacity } from 're
 import { connect } from 'react-redux';
 import { FlatGrid } from 'react-native-super-grid';
 import { fetchExercises } from '../thunks/fetchExercises';
-// import { }
+import { addExerciseToWorkout } from '../actions'
 
 export class ExerciseScreen extends Component {
   constructor() {
@@ -15,6 +15,7 @@ export class ExerciseScreen extends Component {
   };
 
   handleClick = (item) => {
+    this.props.addExerciseToWorkout(item)
     const { navigate } = this.props.navigation;
     navigate('CreateWorkout', { exercise: {item}})
 
@@ -52,7 +53,8 @@ export const mapStateToProps = state => ({
 });
 
 export const mapDispatchToProps = dispatch => ({
-  fetchAllExercises: () => dispatch(fetchExercises())
+  fetchAllExercises: () => dispatch(fetchExercises()),
+  addExerciseToWorkout: (exercise) => dispatch(addExerciseToWorkout(exercise))
 });
 
 export default connect(
