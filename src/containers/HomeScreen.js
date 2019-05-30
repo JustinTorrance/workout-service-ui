@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { FlatGrid } from 'react-native-super-grid';
-import { Text, View, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity, ScrollView, ActivityIndicator } from 'react-native';
 import { fetchAllWorkouts } from '../thunks/fetchAllWorkouts';
 
 export class HomeScreen extends Component {
@@ -21,7 +21,7 @@ export class HomeScreen extends Component {
   }
 
   render() {
-    const { workouts } = this.props;
+    const { workouts, isLoading } = this.props;
     const { navigate } = this.props.navigation;
     console.log(workouts)
     return (
@@ -40,26 +40,32 @@ export class HomeScreen extends Component {
         <View style={styles.myWorkouts}>
           <Text style={styles.boldFont}>My Workouts: </Text>
         </View>
-        <FlatGrid
-          itemDimension={130}
-          style={styles.gridView}
-          items={workouts}
-          renderItem={({ item }) => (
-            <TouchableOpacity
-              key={item.id}
-              style={styles.itemContainer}
-              onPress={() => {
-                navigate('Workout', { workout: {item} })
-              }}
-            >
-              <Text key={item.id} style={styles.itemName}>
-                {item.name}
-              </Text>
-              <Text style={styles.centerText}>Rating: {item.avgrating}</Text>
-              <Text style={styles.centerText}>Workout Length: {item.length}</Text>
-            </TouchableOpacity>
-          )}
-        />
+        {
+          isLoading ?
+          <View style={styles.loading}>
+            <ActivityIndicator size="large" color="#000" />
+          </View> :
+          <FlatGrid
+            itemDimension={130}
+            style={styles.gridView}
+            items={workouts}
+            renderItem={({ item }) => (
+              <TouchableOpacity
+                key={item.id}
+                style={styles.itemContainer}
+                onPress={() => {
+                  navigate('Workout', { workout: {item} })
+                }}
+              >
+                <Text key={item.id} style={styles.itemName}>
+                  {item.name}
+                </Text>
+                <Text style={styles.centerText}>Rating: {item.avgrating}</Text>
+                <Text style={styles.centerText}>Workout Length: {item.length}</Text>
+              </TouchableOpacity>
+            )}
+          />
+        }
       </ScrollView>
     );
   }
@@ -101,7 +107,7 @@ const styles = StyleSheet.create({
     elevation: 4,
   },
   itemName: {
-    fontSize: 20,
+    fontSize: 18,
     color: '#000',
     fontWeight: '600',
     bottom: 10,
@@ -112,11 +118,15 @@ const styles = StyleSheet.create({
   },
   centerText: {
     textAlign: 'center'
+  },
+  loading: {
+    marginTop: 40
   }
 });
 
 export const mapStateToProps = state => ({
-  workouts: state.workouts
+  workouts: state.workouts,
+  isLoading: state.loading
 });
 
 export const mapDispatchToProps = dispatch => ({
