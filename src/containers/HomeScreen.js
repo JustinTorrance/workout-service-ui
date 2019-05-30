@@ -29,10 +29,10 @@ export class HomeScreen extends Component {
           <Text style={styles.welcome}>Fit Assist</Text>
           <View>
             <TouchableOpacity style={styles.button} onPress={this.navigateSearchScreen}>
-              <Text>Search Workouts</Text>
+              <Text style={styles.homeButtons}>Search Workouts</Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.button} onPress={this.navigateCreateWorkout}>
-              <Text>Create New Workout</Text>
+              <Text style={styles.homeButtons}>Create New Workout</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -78,10 +78,15 @@ const styles = StyleSheet.create({
   },
   button: {
     alignItems: 'center',
-    backgroundColor: '#DDD',
-    borderRadius: 50,
-    margin: 5,
-    padding: 10
+    backgroundColor: '#DC143C',
+    borderColor: 'white',
+    borderWidth: 1,
+    borderRadius: 12,
+    fontSize: 24,
+    fontWeight: 'bold',
+    overflow: 'hidden',
+    padding: 12,
+    textAlign: 'center'
   },
   welcome: {
     marginBottom: 20,
@@ -99,7 +104,7 @@ const styles = StyleSheet.create({
   },
   itemContainer: {
     alignItems: 'center',
-    backgroundColor: '#DDD',
+    backgroundColor: '#DC143C',
     borderRadius: 20,
     justifyContent: 'center',
     height: 100,
@@ -107,7 +112,7 @@ const styles = StyleSheet.create({
   },
   itemName: {
     fontSize: 18,
-    color: '#000',
+    color: '#FFF',
     fontWeight: '600',
     bottom: 10,
     textAlign: 'center'
@@ -116,10 +121,17 @@ const styles = StyleSheet.create({
     fontWeight: '600'
   },
   centerText: {
-    textAlign: 'center'
+    textAlign: 'center',
+    color: '#FFF',
   },
   loading: {
     marginTop: 40
+  },
+  homeButtons: {
+    textAlign: 'center',
+    color: '#FFF',
+    fontWeight: '600',
+    fontSize: 18
   }
 });
 
