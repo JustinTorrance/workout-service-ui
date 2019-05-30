@@ -14,16 +14,11 @@ import thunk from 'redux-thunk';
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)));
 
-const AppNavigator = createStackNavigator({
-  Home: HomeScreen,
-  Search: SearchScreen
-});
-
 const DashboardTabNavigator = createBottomTabNavigator({
   Home: HomeScreen,
   Search: SearchScreen,
-  Workout: WorkoutScreen,
   Exercise: ExerciseScreen,
+  Workout: WorkoutScreen,
   CreateWorkout: CreateWorkout
 }, {
     navigationOptions: ({ navigation }) => {
@@ -51,16 +46,8 @@ const DashboardStackNavigator = createStackNavigator({
 const AppDrawerNavigator = createDrawerNavigator({
   Home: { screen: DashboardStackNavigator },
   Search: SearchScreen,
-  WorkoutScreen: WorkoutScreen,
+  Workout: WorkoutScreen,
   ExerciseScreen: ExerciseScreen
-});
-
-const AppSwitchNavigator = createSwitchNavigator({
-  Home: { screen: HomeScreen },
-  Search: { screen: SearchScreen },
-  WorkoutScreen: { screen: WorkoutScreen },
-  ExerciseScreen: { screen: ExerciseScreen }
-
 });
 
 const AppContainer = createAppContainer(AppDrawerNavigator);
