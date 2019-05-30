@@ -26,6 +26,8 @@ export class CreateWorkout extends Component {
     }
     this.props.saveWorkout(workout)
     this.props.fetchAllWorkouts()
+    const { navigate } = this.props.navigation;
+    navigate('SearchScreen');
   }
 
   render() {
