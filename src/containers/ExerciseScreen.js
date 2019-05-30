@@ -24,7 +24,7 @@ export class ExerciseScreen extends Component {
           style={styles.gridView}
           items={this.props.exercises}
           renderItem={({ item }) => (
-            <View key={item.id} style={styles.itemContainer}>
+            <View style={styles.itemContainer}>
               <Text key={item.id} style={styles.itemName}>
                 {item.name}
               </Text>

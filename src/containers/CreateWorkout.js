@@ -21,8 +21,8 @@ export default class CreateWorkout extends Component {
     const { navigation } = this.props;
     const exercise = navigation.getParam('exercise');
     
-    console.log(' Navigation:  ', navigation)
-    console.log('EXERCISE: ', exercise.id)
+    // console.log(' Navigation:  ', navigation)
+    console.log('EXERCISE: ', exercise)
 
     return (
       <ScrollView>
