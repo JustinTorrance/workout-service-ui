@@ -34,6 +34,9 @@ export class SearchScreen extends Component {
       return workoutName.includes(upperCaseSearch);
     });
     this.setState({ filteredSearch });
+    if (filteredSearch.length === 0) {
+      alert('No Matching Workouts');
+    }
   };
 
   render() {
@@ -62,9 +65,7 @@ export class SearchScreen extends Component {
           </View>
         </View>
         <View>
-          <Text style={styles.filter}>Filter by Categories: </Text>
         </View>
-
         {filteredSearch.length <= 0 ? (
           <View>
             <Text style={styles.workouts}>Top Rated: </Text>
@@ -142,7 +143,7 @@ const styles = StyleSheet.create({
     paddingLeft: 7,
     height: 35,
     marginTop: 1,
-    width: 300,
+    width: 250,
     fontSize: 18,
   },
   button: {
