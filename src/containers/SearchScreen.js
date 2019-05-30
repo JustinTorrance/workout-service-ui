@@ -14,40 +14,26 @@ export class SearchScreen extends Component {
     };
   }
 
-  handleSearch = input => {
-    // console.log(input)
-    this.setState({ searchInput: input }, this.handleChange);
-    console.log(this.state.searchInput)
-  }
-
-  handleChange = () => {
-    this.setState({ searchInput: this.state.searchInput })
-    console.log('handle change', this.state.searchInput)
+  handleSearch = async input => {
+    await this.setState({ searchInput: input });
+    this.convertTextToUpperCase();
   }
 
   convertTextToUpperCase = () => {
     const { searchInput } = this.state;
     const text = searchInput;
     let upperCaseInput = text.toUpperCase();
-    console.log('toUppercase', upperCaseInput)
     this.setState({ upperCaseSearch: upperCaseInput });
   }
 
   filterBySearch = () => {
     const { workouts } = this.props;
     const { upperCaseSearch } = this.state;
-    console.log('filter by search input: ', upperCaseSearch)
-    this.convertTextToUpperCase();
-    console.log('UPPER CASE SEARCH: ', upperCaseSearch)
     const filteredSearch = workouts.filter(workout => {
       let workoutName = workout.name.toUpperCase();
-      console.log('wo name: ', workoutName);
-      console.log('workout.name: ', workout.name);
       return workoutName.includes(upperCaseSearch);
     });
-    console.log('filtered search: ', filteredSearch)
-    this.setState({filteredSearch})
-    // return filteredSearch;
+    this.setState({ filteredSearch });
   };
 
   render() {
@@ -65,9 +51,10 @@ export class SearchScreen extends Component {
           <View style={styles.flexRow}>
             <TextInput
               style={styles.textInput}
-              onChangeText={input => this.handleSearch(input)}
+              onChangeText={(input) => this.handleSearch(input)}
               value={searchInput}
               placeholder="Search"
+              name='searchInput'
             />
             <TouchableOpacity style={styles.button} onPress={() => this.filterBySearch()}>
               <Text> Search </Text>
@@ -159,9 +146,9 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   button: {
+    alignItems: 'center',
     borderRadius: 30,
     marginLeft: 12,
-    alignItems: 'center',
     backgroundColor: '#DDDDDD',
     padding: 9
   },
