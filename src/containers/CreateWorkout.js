@@ -156,6 +156,6 @@ const styles = StyleSheet.create({
     shadowRadius: 2
   },
   textStyle: {
-    fontSize: 24,
+    fontSize: 25,
   },
 });
