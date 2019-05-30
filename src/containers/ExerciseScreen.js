@@ -14,18 +14,17 @@ export class ExerciseScreen extends Component {
     await this.props.fetchAllExercises()
   }
 
-  addExercise = () => {
-    //this adds exercise to CreateWorkout component
-    //redirects user to CreateWorkout component
-  }
+  // addExercise = () => {
+  //   // console.log(e.target.key)
+  // }
 
   navigateCreateWorkout = () => {
     const { navigate } = this.props.navigation;
     navigate('CreateWorkout');
   }
 
-  handleClick = () => {
-    this.addExercise()
+  handleClick = (id) => {
+    console.log('KEYYYYYYY', id)
     this.navigateCreateWorkout()
   }
 
@@ -41,7 +40,9 @@ export class ExerciseScreen extends Component {
           renderItem={({item}) =>
           <View key={item.id} style={styles.itemContainer}>
             <Text key={item.id} style={styles.itemName}>{item.name}</Text>
-            <TouchableOpacity onPress={this.handleClick}>
+            <TouchableOpacity
+              onPress={({item}) => this.handleClick(item)} 
+            >
               <Text style={styles.button}>+</Text>
             </TouchableOpacity>
           </View>
