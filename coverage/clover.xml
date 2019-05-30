@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1559164105196" clover="3.2.0">
+  <project timestamp="1559164105196" name="All files">
+    <metrics statements="50" coveredstatements="32" conditionals="0" coveredconditionals="0" methods="30" coveredmethods="8" elements="80" coveredelements="40" complexity="0" loc="50" ncloc="50" packages="1" files="3" classes="3"/>
+    <file name="ExerciseScreen.js" path="/Users/justintorrance/turing/thisMod/workout-service-ui/src/containers/ExerciseScreen.js">
+      <metrics statements="10" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="3"/>
+      <line num="10" count="1" type="stmt"/>
+      <line num="13" count="1" type="stmt"/>
+      <line num="14" count="1" type="stmt"/>
+      <line num="17" count="1" type="stmt"/>
+      <line num="24" count="1" type="stmt"/>
+      <line num="33" count="0" type="stmt"/>
+      <line num="48" count="2" type="stmt"/>
+      <line num="52" count="2" type="stmt"/>
+      <line num="53" count="0" type="stmt"/>
+      <line num="58" count="2" type="stmt"/>
+    </file>
+    <file name="HomeScreen.js" path="/Users/justintorrance/turing/thisMod/workout-service-ui/src/containers/HomeScreen.js">
+      <metrics statements="18" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="2"/>
+      <line num="9" count="1" type="stmt"/>
+      <line num="10" count="1" type="stmt"/>
+      <line num="13" count="1" type="stmt"/>
+      <line num="14" count="0" type="stmt"/>
+      <line num="15" count="0" type="stmt"/>
+      <line num="18" count="1" type="stmt"/>
+      <line num="19" count="0" type="stmt"/>
+      <line num="20" count="0" type="stmt"/>
+      <line num="24" count="1" type="stmt"/>
+      <line num="25" count="1" type="stmt"/>
+      <line num="26" count="1" type="stmt"/>
+      <line num="27" count="1" type="stmt"/>
+      <line num="48" count="0" type="stmt"/>
+      <line num="52" count="0" type="stmt"/>
+      <line num="68" count="2" type="stmt"/>
+      <line num="118" count="2" type="stmt"/>
+      <line num="122" count="2" type="stmt"/>
+      <line num="123" count="0" type="stmt"/>
+    </file>
+    <file name="SearchScreen.js" path="/Users/justintorrance/turing/thisMod/workout-service-ui/src/containers/SearchScreen.js">
+      <metrics statements="22" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="13" coveredmethods="3"/>
+      <line num="9" count="1" type="stmt"/>
+      <line num="10" count="1" type="stmt"/>
+      <line num="16" count="1" type="stmt"/>
+      <line num="17" count="1" type="stmt"/>
+      <line num="20" count="1" type="stmt"/>
+      <line num="21" count="0" type="stmt"/>
+      <line num="24" count="1" type="stmt"/>
+      <line num="25" count="0" type="stmt"/>
+      <line num="26" count="0" type="stmt"/>
+      <line num="27" count="0" type="stmt"/>
+      <line num="31" count="1" type="stmt"/>
+      <line num="32" count="1" type="stmt"/>
+      <line num="33" count="1" type="stmt"/>
+      <line num="34" count="0" type="stmt"/>
+      <line num="37" count="1" type="stmt"/>
+      <line num="44" count="0" type="stmt"/>
+      <line num="62" count="0" type="stmt"/>
+      <line num="66" count="0" type="stmt"/>
+      <line num="82" count="3" type="stmt"/>
+      <line num="86" count="3" type="stmt"/>
+      <line num="87" count="0" type="stmt"/>
+      <line num="92" count="3" type="stmt"/>
+    </file>
+  </project>
+</coverage>
