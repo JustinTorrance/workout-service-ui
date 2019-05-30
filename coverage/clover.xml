@@ -1,65 +1,266 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1559164105196" clover="3.2.0">
-  <project timestamp="1559164105196" name="All files">
-    <metrics statements="50" coveredstatements="32" conditionals="0" coveredconditionals="0" methods="30" coveredmethods="8" elements="80" coveredelements="40" complexity="0" loc="50" ncloc="50" packages="1" files="3" classes="3"/>
-    <file name="ExerciseScreen.js" path="/Users/justintorrance/turing/thisMod/workout-service-ui/src/containers/ExerciseScreen.js">
-      <metrics statements="10" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="3"/>
-      <line num="10" count="1" type="stmt"/>
-      <line num="13" count="1" type="stmt"/>
-      <line num="14" count="1" type="stmt"/>
-      <line num="17" count="1" type="stmt"/>
-      <line num="24" count="1" type="stmt"/>
-      <line num="33" count="0" type="stmt"/>
-      <line num="48" count="2" type="stmt"/>
-      <line num="52" count="2" type="stmt"/>
-      <line num="53" count="0" type="stmt"/>
-      <line num="58" count="2" type="stmt"/>
-    </file>
-    <file name="HomeScreen.js" path="/Users/justintorrance/turing/thisMod/workout-service-ui/src/containers/HomeScreen.js">
-      <metrics statements="18" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="9" coveredmethods="2"/>
-      <line num="9" count="1" type="stmt"/>
-      <line num="10" count="1" type="stmt"/>
-      <line num="13" count="1" type="stmt"/>
-      <line num="14" count="0" type="stmt"/>
-      <line num="15" count="0" type="stmt"/>
-      <line num="18" count="1" type="stmt"/>
-      <line num="19" count="0" type="stmt"/>
-      <line num="20" count="0" type="stmt"/>
-      <line num="24" count="1" type="stmt"/>
-      <line num="25" count="1" type="stmt"/>
-      <line num="26" count="1" type="stmt"/>
-      <line num="27" count="1" type="stmt"/>
-      <line num="48" count="0" type="stmt"/>
-      <line num="52" count="0" type="stmt"/>
-      <line num="68" count="2" type="stmt"/>
-      <line num="118" count="2" type="stmt"/>
-      <line num="122" count="2" type="stmt"/>
-      <line num="123" count="0" type="stmt"/>
-    </file>
-    <file name="SearchScreen.js" path="/Users/justintorrance/turing/thisMod/workout-service-ui/src/containers/SearchScreen.js">
-      <metrics statements="22" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="13" coveredmethods="3"/>
-      <line num="9" count="1" type="stmt"/>
-      <line num="10" count="1" type="stmt"/>
-      <line num="16" count="1" type="stmt"/>
-      <line num="17" count="1" type="stmt"/>
-      <line num="20" count="1" type="stmt"/>
-      <line num="21" count="0" type="stmt"/>
-      <line num="24" count="1" type="stmt"/>
-      <line num="25" count="0" type="stmt"/>
-      <line num="26" count="0" type="stmt"/>
-      <line num="27" count="0" type="stmt"/>
-      <line num="31" count="1" type="stmt"/>
-      <line num="32" count="1" type="stmt"/>
-      <line num="33" count="1" type="stmt"/>
-      <line num="34" count="0" type="stmt"/>
-      <line num="37" count="1" type="stmt"/>
-      <line num="44" count="0" type="stmt"/>
-      <line num="62" count="0" type="stmt"/>
-      <line num="66" count="0" type="stmt"/>
-      <line num="82" count="3" type="stmt"/>
-      <line num="86" count="3" type="stmt"/>
-      <line num="87" count="0" type="stmt"/>
-      <line num="92" count="3" type="stmt"/>
-    </file>
+<coverage generated="1559241601607" clover="3.2.0">
+  <project timestamp="1559241601607" name="All files">
+    <metrics statements="191" coveredstatements="62" conditionals="34" coveredconditionals="14" methods="79" coveredmethods="17" elements="304" coveredelements="93" complexity="0" loc="191" ncloc="191" packages="5" files="18" classes="18"/>
+    <package name="actions">
+      <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="5"/>
+      <file name="index.js" path="/Users/justintorrance/turing/thisMod/workout-service-ui/src/actions/index.js">
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="5"/>
+        <line num="1" count="5" type="stmt"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="11" count="5" type="stmt"/>
+        <line num="16" count="5" type="stmt"/>
+        <line num="21" count="5" type="stmt"/>
+        <line num="26" count="5" type="stmt"/>
+      </file>
+    </package>
+    <package name="containers">
+      <metrics statements="120" coveredstatements="34" conditionals="10" coveredconditionals="2" methods="60" coveredmethods="6"/>
+      <file name="App.js" path="/Users/justintorrance/turing/thisMod/workout-service-ui/src/containers/App.js">
+        <metrics statements="10" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="1"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="32" count="1" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="46" count="1" type="stmt"/>
+        <line num="53" count="1" type="stmt"/>
+        <line num="57" count="1" type="stmt"/>
+      </file>
+      <file name="CreateWorkout.js" path="/Users/justintorrance/turing/thisMod/workout-service-ui/src/containers/CreateWorkout.js">
+        <metrics statements="20" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="11" coveredmethods="0"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="82" count="1" type="stmt"/>
+        <line num="86" count="1" type="stmt"/>
+        <line num="87" count="0" type="stmt"/>
+        <line num="88" count="0" type="stmt"/>
+        <line num="93" count="1" type="stmt"/>
+      </file>
+      <file name="ExerciseScreen.js" path="/Users/justintorrance/turing/thisMod/workout-service-ui/src/containers/ExerciseScreen.js">
+        <metrics statements="16" coveredstatements="9" conditionals="2" coveredconditionals="1" methods="10" coveredmethods="3"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="56" count="2" type="stmt"/>
+        <line num="61" count="2" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="63" count="0" type="stmt"/>
+        <line num="71" count="2" type="stmt"/>
+      </file>
+      <file name="HomeScreen.js" path="/Users/justintorrance/turing/thisMod/workout-service-ui/src/containers/HomeScreen.js">
+        <metrics statements="17" coveredstatements="10" conditionals="2" coveredconditionals="1" methods="9" coveredmethods="2"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="1" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="73" count="2" type="stmt"/>
+        <line num="138" count="2" type="stmt"/>
+        <line num="143" count="2" type="stmt"/>
+        <line num="144" count="0" type="stmt"/>
+      </file>
+      <file name="LoginScreen.js" path="/Users/justintorrance/turing/thisMod/workout-service-ui/src/containers/LoginScreen.js">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="6" count="0" type="stmt"/>
+      </file>
+      <file name="SearchScreen.js" path="/Users/justintorrance/turing/thisMod/workout-service-ui/src/containers/SearchScreen.js">
+        <metrics statements="35" coveredstatements="3" conditionals="4" coveredconditionals="0" methods="16" coveredmethods="0"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="62" count="0" type="stmt"/>
+        <line num="77" count="0" type="stmt"/>
+        <line num="81" count="0" type="stmt"/>
+        <line num="101" count="0" type="stmt"/>
+        <line num="105" count="0" type="stmt"/>
+        <line num="123" count="2" type="stmt"/>
+        <line num="127" count="2" type="stmt"/>
+        <line num="128" count="0" type="stmt"/>
+        <line num="133" count="2" type="stmt"/>
+      </file>
+      <file name="WorkoutScreen.js" path="/Users/justintorrance/turing/thisMod/workout-service-ui/src/containers/WorkoutScreen.js">
+        <metrics statements="21" coveredstatements="3" conditionals="2" coveredconditionals="0" methods="9" coveredmethods="0"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="44" count="0" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="77" count="0" type="stmt"/>
+        <line num="97" count="2" type="stmt"/>
+        <line num="103" count="2" type="stmt"/>
+        <line num="179" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="reducers">
+      <metrics statements="24" coveredstatements="18" conditionals="18" coveredconditionals="12" methods="6" coveredmethods="6"/>
+      <file name="error.js" path="/Users/justintorrance/turing/thisMod/workout-service-ui/src/reducers/error.js">
+        <metrics statements="4" coveredstatements="3" conditionals="3" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="2" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+      </file>
+      <file name="exercises.js" path="/Users/justintorrance/turing/thisMod/workout-service-ui/src/reducers/exercises.js">
+        <metrics statements="4" coveredstatements="3" conditionals="3" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="2" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+      </file>
+      <file name="exercisesInProgress.js" path="/Users/justintorrance/turing/thisMod/workout-service-ui/src/reducers/exercisesInProgress.js">
+        <metrics statements="4" coveredstatements="3" conditionals="3" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="2" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+      </file>
+      <file name="loading.js" path="/Users/justintorrance/turing/thisMod/workout-service-ui/src/reducers/loading.js">
+        <metrics statements="4" coveredstatements="3" conditionals="3" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="2" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+      </file>
+      <file name="selectedWorkout.js" path="/Users/justintorrance/turing/thisMod/workout-service-ui/src/reducers/selectedWorkout.js">
+        <metrics statements="4" coveredstatements="3" conditionals="3" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="2" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+      </file>
+      <file name="workouts.js" path="/Users/justintorrance/turing/thisMod/workout-service-ui/src/reducers/workouts.js">
+        <metrics statements="4" coveredstatements="3" conditionals="3" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="2" count="3" type="cond" truecount="1" falsecount="1"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="thunks">
+      <metrics statements="32" coveredstatements="3" conditionals="4" coveredconditionals="0" methods="6" coveredmethods="0"/>
+      <file name="fetchAllWorkouts.js" path="/Users/justintorrance/turing/thisMod/workout-service-ui/src/thunks/fetchAllWorkouts.js">
+        <metrics statements="10" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+      </file>
+      <file name="fetchExercises.js" path="/Users/justintorrance/turing/thisMod/workout-service-ui/src/thunks/fetchExercises.js">
+        <metrics statements="11" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+      </file>
+      <file name="saveWorkout.js" path="/Users/justintorrance/turing/thisMod/workout-service-ui/src/thunks/saveWorkout.js">
+        <metrics statements="11" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="utilities">
+      <metrics statements="9" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="fetchData.js" path="/Users/justintorrance/turing/thisMod/workout-service-ui/src/utilities/fetchData.js">
+        <metrics statements="9" coveredstatements="1" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+      </file>
+    </package>
   </project>
 </coverage>
