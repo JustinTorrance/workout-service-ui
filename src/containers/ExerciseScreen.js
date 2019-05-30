@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Text, StyleSheet, ScrollView, View, Button, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { FlatGrid } from 'react-native-super-grid';
-import SearchScreen from './SearchScreen';
 import { fetchExercises } from '../thunks/fetchExercises';
+// import { }
 
 export class ExerciseScreen extends Component {
   constructor() {
@@ -14,8 +14,14 @@ export class ExerciseScreen extends Component {
     await this.props.fetchAllExercises();
   };
 
-  render() {
+  handleClick = (item) => {
     const { navigate } = this.props.navigation;
+    navigate('CreateWorkout', { exercise: {item}})
+
+    console.log('ITEM', item)
+  }
+
+  render() {
     return (
       <ScrollView>
         <Text style={styles.title}>Exercises</Text>
@@ -29,7 +35,7 @@ export class ExerciseScreen extends Component {
                 {item.name}
               </Text>
               <TouchableOpacity onPress={() => {
-                navigate('CreateWorkout', { exercise: {item}})
+                this.handleClick({item})
               }}>
                 <Text style={styles.button}>+</Text>
               </TouchableOpacity>
