@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, StyleSheet, ScrollView, View, Button, TouchableOpacity } from 'react-native';
+import { Text, StyleSheet, ScrollView, View, ActivityIndicator, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { FlatGrid } from 'react-native-super-grid';
 import { fetchExercises } from '../thunks/fetchExercises';
@@ -21,33 +21,41 @@ export class ExerciseScreen extends Component {
   }
 
   render() {
+    const { isLoading } = this.props;
     return (
       <ScrollView>
         <Text style={styles.title}>Exercises</Text>
-        <FlatGrid
-          itemDimension={130}
-          style={styles.gridView}
-          items={this.props.exercises}
-          renderItem={({ item }) => (
-            <View style={styles.itemContainer}>
-              <Text key={item.id} style={styles.itemName}>
-                {item.name}
-              </Text>
-              <TouchableOpacity onPress={() => {
-                this.handleClick({item})
-              }}>
-                <Text style={styles.button}>+</Text>
-              </TouchableOpacity>
-            </View>
-          )}
-        />
+        {
+          isLoading ?
+          <View style={styles.loading}>
+            <ActivityIndicator size="large" color="#000" />
+          </View> :
+          <FlatGrid
+            itemDimension={130}
+            style={styles.gridView}
+            items={this.props.exercises}
+            renderItem={({ item }) => (
+              <View style={styles.itemContainer}>
+                <Text key={item.id} style={styles.itemName}>
+                  {item.name}
+                </Text>
+                <TouchableOpacity onPress={() => {
+                  this.handleClick({item})
+                }}>
+                  <Text style={styles.button}>+</Text>
+                </TouchableOpacity>
+              </View>
+            )}
+          />
+        }
       </ScrollView>
     );
   }
 }
 
 export const mapStateToProps = state => ({
-  exercises: state.exercises
+  exercises: state.exercises,
+  isLoading: state.loading
 });
 
 export const mapDispatchToProps = dispatch => ({
@@ -102,5 +110,8 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     padding: 12,
     textAlign: 'center'
+  },
+  loading: {
+    marginTop: 80
   }
 });
