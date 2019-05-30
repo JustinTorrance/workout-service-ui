@@ -1,8 +1,44 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, ScrollView, Image } from 'react-native';
+import { Text, View, StyleSheet, ScrollView, Image, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
+import { Stopwatch } from 'react-native-stopwatch-timer';
 
 export class WorkoutScreen extends Component {
+  constructor() {
+    super();
+    this.state = {
+      isTimerStart: false,
+      isStopwatchStart: false,
+      timerDuration: 60000,
+      resetTimer: false,
+      resetStopwatch: false
+    };
+
+    this.startStopTimer = this.startStopTimer.bind(this);
+    this.resetTimer = this.resetTimer.bind(this);
+    this.startStopStopWatch = this.startStopStopWatch.bind(this);
+    this.resetStopwatch = this.resetStopwatch.bind(this);
+  }
+
+  startStopTimer() {
+    this.setState({isTimerStart: !this.state.isTimerStart, resetTimer: false});
+  }
+
+  resetTimer() {
+    this.setState({isTimerStart: false, resetTimer: true});
+  }
+
+  startStopStopWatch() {
+    this.setState({isStopwatchStart: !this.state.isStopwatchStart, resetStopwatch: false});
+  }
+
+  resetStopwatch() {
+    this.setState({isStopwatchStart: false, resetStopwatch: true});
+  }
+
+  getFormattedTime(time) {
+      this.currentTime = time;
+  }
 
   render() {
     const { navigation } = this.props;
@@ -27,11 +63,32 @@ export class WorkoutScreen extends Component {
               </Text>
               <Image
                 style={styles.exerciseImage}
-                source={{ uri: 'https://www.bodybuilding.com/exercises/exerciseImages/sequences/70/Male/l/70_1.jpg' }}
+                source={{
+                  uri:
+                    'https://www.bodybuilding.com/exercises/exerciseImages/sequences/70/Male/l/70_1.jpg'
+                }}
               />
             </View>
           );
         })}
+        <View style={styles.stopWatch}>
+          <Text style={{marginBottom: 10, fontSize: 16, fontWeight: '600'}}>Workout Stopwatch</Text>
+          <Stopwatch
+            laps
+            start={this.state.isStopwatchStart}
+            reset={this.state.resetStopwatch}
+            options={options}
+            getTime={this.getFormattedTime}
+          />
+          <View style={styles.displayRow}>
+            <TouchableOpacity onPress={this.startStopStopWatch} style={styles.startStop}>
+              <Text>{!this.state.isStopwatchStart ? 'Start' : 'Stop'}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={this.resetStopwatch} style={styles.startStop}>
+              <Text>Reset</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
       </ScrollView>
     );
   }
@@ -67,7 +124,7 @@ const styles = StyleSheet.create({
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,
-    shadowRadius: 2,
+    shadowRadius: 2
   },
   exerciseTitle: {
     left: 30,
@@ -95,5 +152,41 @@ const styles = StyleSheet.create({
     height: 65,
     marginTop: 17,
     marginBottom: 20
+  },
+  startStop: {
+    alignItems: 'center',
+    backgroundColor: '#EFEFEF',
+    borderRadius: 50,
+    fontSize: 12,
+    justifyContent: 'center',
+    marginLeft: 2,
+    marginRight: 5,
+    marginTop: 6,
+    width: 90,
+  },
+  displayRow: {
+    flexDirection: 'row',
+  },
+  stopWatch: {
+    flex: 1,
+    marginTop: 25,
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 });
+
+
+const options = {
+  container: {
+    backgroundColor: '#DDD',
+    padding: 5,
+    borderRadius: 20,
+    width: 200,
+    alignItems: 'center',
+  },
+  text: {
+    fontSize: 25,
+    color: '#000',
+    marginLeft: 7,
+  }
+}
