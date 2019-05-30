@@ -23,11 +23,10 @@ export class HomeScreen extends Component {
   render() {
     const { workouts, isLoading } = this.props;
     const { navigate } = this.props.navigation;
-    console.log(workouts)
     return (
       <ScrollView>
         <View style={styles.container}>
-          <Text style={styles.welcome}>Welcome!</Text>
+          <Text style={styles.welcome}>Fit Assist</Text>
           <View>
             <TouchableOpacity style={styles.button} onPress={this.navigateSearchScreen}>
               <Text>Search Workouts</Text>

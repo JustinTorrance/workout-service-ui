@@ -16,15 +16,11 @@ export class CreateWorkout extends Component {
     navigate('ExerciseScreen');
   }
 
+  saveWorkout = () => {
+    //post
+  }
+
   render() {
-
-    // const { navigation } = this.props;
-    // const exercise = navigation.getParam('exercise');
-
-    if (this.props.exercisesToAddToWorkout.length > 0) {
-      console.log('WHOOOHOOO', this.props.exercisesToAddToWorkout)
-
-    }
 
     return (
       <ScrollView>
@@ -50,14 +46,21 @@ export class CreateWorkout extends Component {
             {this.props.exercisesToAddToWorkout.map(exercise => {
               return (
                 <View key={exercise.id} style={styles.exercise}>
+                  <TextInput
+                    style={styles.repsInput}
+                    placeholder='Time / reps'
+                  />
                   <Text style={styles.textStyle}>
-                    {exercise.item.name} : {exercise.item.description}
+                    {exercise.item.name}
                   </Text>
                 </View>
               );
             })}
             <TouchableOpacity onPress={this.handleClick}>
               <Text style={styles.button}>Add Exercise</Text>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={this.saveWorkout}>
+              <Text style={styles.button}>Save Workout</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -77,6 +80,16 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
   },
+  repsInput: {
+    borderColor: '#000',
+    borderWidth: 1,
+    width: 110,
+    height: 30,
+    fontSize: 15,
+    paddingLeft: 9,
+    borderRadius: 5,
+    margin: 5
+  },
   textInput: {
     borderColor: '#000',
     borderWidth: 1,
@@ -88,7 +101,7 @@ const styles = StyleSheet.create({
     margin: 10
   },
   title: {
-    fontSize: 25
+    fontSize: 15
   },
   button: {
     backgroundColor: '#DC143C',
@@ -101,11 +114,29 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     padding: 12,
     textAlign:'center',
-    width: 200
+    width: 200,
+    marginTop: 30
+  },
+  exercise: {
+    alignItems: 'center',
+    backgroundColor: '#F1F0F0',
+    borderWidth: 1,
+    borderColor: '#E8E8E8',
+    borderRadius: 20,
+    elevation: 1,
+    flexDirection: 'row',
+    height: 100,
+    marginTop: 13,
+    marginLeft: 60,
+    marginRight: 80,
+    width: 300,
+    padding: 20,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2
   },
   textStyle: {
-    flex: 2,
-    fontSize: 14,
-    padding: 4
+    fontSize: 25,
   },
 });
