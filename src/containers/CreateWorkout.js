@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, ScrollView, TextInput, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
+import { saveWorkout } from '../thunks/saveWorkout';
 
 export class CreateWorkout extends Component {
   constructor() {
@@ -16,8 +17,13 @@ export class CreateWorkout extends Component {
     navigate('ExerciseScreen');
   }
 
-  saveWorkout = () => {
-    //post
+  postWorkout = () => {
+    const workout = {
+      name: this.state.name,
+      length: this.state.length,
+      exercises: this.props.exercises
+    }
+    this.props.saveWorkout(workout)
   }
 
   render() {
@@ -59,7 +65,7 @@ export class CreateWorkout extends Component {
             <TouchableOpacity onPress={this.handleClick}>
               <Text style={styles.button}>Add Exercise</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={this.saveWorkout}>
+            <TouchableOpacity onPress={this.postWorkout}>
               <Text style={styles.button}>Save Workout</Text>
             </TouchableOpacity>
           </View>
@@ -73,7 +79,11 @@ export const mapStateToProps = (state) => ({
   exercisesToAddToWorkout: state.exercisesInProgress
 })
 
-export default connect(mapStateToProps)(CreateWorkout);
+export const mapDispatchToProps = (dispatch) => ({
+  saveWorkout: (workout) => dispatch(saveWorkout(workout))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateWorkout);
 
 const styles = StyleSheet.create({
   container: {
