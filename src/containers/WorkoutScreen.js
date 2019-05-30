@@ -55,22 +55,6 @@ export class WorkoutScreen extends Component {
           <Text style={styles.description}>Rating: {rating}</Text>
         </View>
         <Text style={styles.exerciseTitle}>Exercises: </Text>
-        {workout.item.repetitions.map(exercise => {
-          return (
-            <View key={exercise.id} style={styles.exercise}>
-              <Text style={styles.textStyle}>
-                {exercise.exercise.name} : {exercise.description}
-              </Text>
-              <Image
-                style={styles.exerciseImage}
-                source={{
-                  uri:
-                    'https://www.bodybuilding.com/exercises/exerciseImages/sequences/70/Male/l/70_1.jpg'
-                }}
-              />
-            </View>
-          );
-        })}
         <View style={styles.stopWatch}>
           <Text style={{marginBottom: 10, fontSize: 16, fontWeight: '600'}}>Workout Stopwatch</Text>
           <Stopwatch
@@ -89,6 +73,22 @@ export class WorkoutScreen extends Component {
             </TouchableOpacity>
           </View>
         </View>
+        {workout.item.repetitions.map(exercise => {
+          return (
+            <View key={exercise.id} style={styles.exercise}>
+              <Text style={styles.textStyle}>
+                {exercise.exercise.name} : {exercise.description}
+              </Text>
+              <Image
+                style={styles.exerciseImage}
+                source={{
+                  uri:
+                    'https://www.bodybuilding.com/exercises/exerciseImages/sequences/70/Male/l/70_1.jpg'
+                }}
+              />
+            </View>
+          );
+        })}
       </ScrollView>
     );
   }

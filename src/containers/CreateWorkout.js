@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Text, View, StyleSheet, ScrollView, TextInput, TouchableOpacity } from 'react-native';
 import { connect } from 'react-redux';
 import { saveWorkout } from '../thunks/saveWorkout';
+import { fetchAllWorkouts } from '../thunks/fetchAllWorkouts'
 
 export class CreateWorkout extends Component {
   constructor() {
@@ -20,10 +21,11 @@ export class CreateWorkout extends Component {
   postWorkout = () => {
     const workout = {
       name: this.state.name,
-      length: this.state.length,
-      exercises: this.props.exercises
+      length: this.state.duration,
+      exercises: this.props.exercisesToAddToWorkout
     }
     this.props.saveWorkout(workout)
+    this.props.fetchAllWorkouts()
   }
 
   render() {
@@ -80,7 +82,8 @@ export const mapStateToProps = (state) => ({
 })
 
 export const mapDispatchToProps = (dispatch) => ({
-  saveWorkout: (workout) => dispatch(saveWorkout(workout))
+  saveWorkout: (workout) => dispatch(saveWorkout(workout)),
+  fetchAllWorkouts: () => dispatch(fetchAllWorkouts())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateWorkout);

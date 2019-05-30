@@ -1,6 +1,7 @@
 import { setLoading, setError } from '../actions'
 
 export const saveWorkout = (workout) => {
+  console.log('HITTTTTT!', workout)
   return async (dispatch) => {
     const options = {
       method: "POST",
@@ -15,8 +16,11 @@ export const saveWorkout = (workout) => {
       if (!response.ok) {
         throw new Error(response.statusText)
       }
+      const data = response.json()
+      console.log('DATA', data)
       dispatch(setLoading(false))
     } catch (error) {
+      console.log(error)
       dispatch(setError(error.message))
     }
   }
