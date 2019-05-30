@@ -24,9 +24,9 @@ export class CreateWorkout extends Component {
 
     return (
       <ScrollView>
-        <View>
+        <View style={styles.container}>
           <View>
-            <Text style={styles.title}> Create Workout </Text>
+            <Text style={styles.title}> Create New Workout </Text>
           </View>
           <View>
             <TextInput
@@ -42,7 +42,7 @@ export class CreateWorkout extends Component {
               placeholder='Duration'
             />
           </View>
-          <View>
+          <View style={styles.container}>
             {this.props.exercisesToAddToWorkout.map(exercise => {
               return (
                 <View key={exercise.id} style={styles.exercise}>
@@ -78,7 +78,9 @@ export default connect(mapStateToProps)(CreateWorkout);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    alignItems: 'center',
     justifyContent: 'center',
+    top: 14,
   },
   repsInput: {
     borderColor: '#000',
@@ -101,7 +103,9 @@ const styles = StyleSheet.create({
     margin: 10
   },
   title: {
-    fontSize: 15
+    fontSize: 15,
+    fontWeight: '600',
+    marginBottom: 10,
   },
   button: {
     backgroundColor: '#DC143C',
