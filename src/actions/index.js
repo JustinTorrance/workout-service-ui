@@ -23,3 +23,8 @@ export const storeExercises = exercises => ({
   exercises
 });
 
+export const addExerciseToWorkout = exercise => ({
+  type: 'ADD_EXERCISE_TO_WORKOUT',
+  exercise
+})
+
